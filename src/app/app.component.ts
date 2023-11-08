@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'proyecto-avanzada';
+  integrantes = 'Michael Aristizabal - Juan Camilo Cardona';
 }

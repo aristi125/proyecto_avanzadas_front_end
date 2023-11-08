@@ -14,7 +14,11 @@
   <div>
     <label >Foto: </label>
     <input type="file" required />
-    </div>
+  </div>
+  <div>
+    <label >Imagen: </label>
+    <input type="file" (change)="onFileChange($event)" />
+  </div>
   <div>
     <label>Ciudad: </label>
     <select name="ciudad" required [(ngModel)]="registroPacienteDTO.ciudad" >
