@@ -3,26 +3,43 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent } from './pagina/inicio/inicio.component';
 import { LoginComponent } from './pagina/login/login.component';
 import { RegistroComponent } from './pagina/registro/registro.component';
-import { PqrsComponent } from './pagina/pqrs/pqrs.component';
-import { CitasComponent } from './pagina/citas/citas.component';
 import { EditarPerfilComponent } from './pagina/editar-perfil/editar-perfil.component';
 import { ListarCitasPendientesComponent } from './pagina/listar-citas-pendientes/listar-citas-pendientes.component';
 import { AtenderCitasComponent } from './pagina/atender-citas/atender-citas.component';
 import { ListarCitasRealizadasComponent } from './pagina/listar-citas-realizadas/listar-citas-realizadas.component';
 import { AgendarDiaLibreComponent } from './pagina/agendar-dia-libre/agendar-dia-libre.component';
 
+import { CrearCitaPacienteComponent } from './pagina/crear-cita-paciente/crear-cita-paciente.component';
+import { CrearPqrPacienteComponent } from './pagina/crear-pqr-paciente/crear-pqr-paciente.component';
+import { FiltrarMedicoFechaPacienteComponent } from './pagina/filtrar-medico-fecha-paciente/filtrar-medico-fecha-paciente.component';
+import { InicioMedicoComponent } from './pagina/inicio-medico/inicio-medico.component';
+import { InicioPacienteComponent } from './pagina/inicio-paciente/inicio-paciente.component';
+import { ListarCitaComponent } from './pagina/listar-cita/listar-cita.component';
+import { ListarPqrsPacienteComponent } from './pagina/listar-pqrs-paciente/listar-pqrs-paciente.component';
+import { RecuperarContrasenaComponent } from './pagina/recuperar-contrasena/recuperar-contrasena.component';
+import { VerDetalleCitaComponent } from './pagina/ver-detalle-cita/ver-detalle-cita.component';
+import { VerDetallePqrPacienteComponent } from './pagina/ver-detalle-pqr-paciente/ver-detalle-pqr-paciente.component';
+
 
 const routes: Routes = [
   { path: "", component: InicioComponent },
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent },
-  { path: "pqrs", component: PqrsComponent},
-  { path: "citas", component: CitasComponent},
   { path: "editarPerdil", component: EditarPerfilComponent},
   { path: "listarCitasPendientes", component: ListarCitasPendientesComponent},
   { path: "atenderCitas", component: AtenderCitasComponent},
   { path: "listarCitasRealizadas", component: ListarCitasRealizadasComponent},
   { path: "agendarDiaLibre", component: AgendarDiaLibreComponent},
+  { path: "crearCitaPaciente", component: CrearCitaPacienteComponent},
+  { path: "crearPqrPaciente", component: CrearPqrPacienteComponent},
+  { path: "filtrarMedicoFechaPaciente", component: FiltrarMedicoFechaPacienteComponent},
+  { path: "inicioMedico", component: InicioMedicoComponent},
+  { path: "inicioPaciente", component: InicioPacienteComponent},
+  { path: "listarCitas", component: ListarCitaComponent},
+  { path: "listarPqrsPaciente", component: ListarPqrsPacienteComponent},
+  { path: "recuperarContrasena", component: RecuperarContrasenaComponent},
+  { path: "verDetalleCitaCliente", component: VerDetalleCitaComponent},
+  { path: "verDetallePqrPaciente", component: VerDetallePqrPacienteComponent},
   { path: "**", pathMatch: "full", redirectTo: "" }
 ];
 
