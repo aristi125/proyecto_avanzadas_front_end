@@ -1,1 +1,52 @@
-<p>recuperar-contrasena works!</p>
+<div class="card">
+  <div class="card-header ps-5 pt-4 pb-4">
+    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Registro de un nuevo paciente</h5>
+  </div>
+  <div class="card-body p-5">
+    <form #formulario="ngForm">
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Código:</label>
+        <div class="col-sm-10">
+          <input #codigotipo="ngModel"
+            [ngClass]="codigotipo.invalid && (codigotipo.dirty || codigotipo.touched) ? 'is-invalid' : ''"
+            type="text" name="codigotipo" class="form-control" required [(ngModel)]="recuperarContrasena.codigo"
+            (keypress)="onlyNumberKey($event)" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Nombre:</label>
+        <div class="col-sm-10">
+          <input #nombre="ngModel"
+            [ngClass]="nombre.invalid && (nombre.dirty || nombre.touched) ? 'is-invalid' : ''"
+            type="text" name="nombre" class="form-control" required [(ngModel)]="recuperarContrasena.nombre" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Correo:</label>
+        <div class="col-sm-10">
+          <input #correo="ngModel"
+            [ngClass]="correo.invalid && (correo.dirty || correo.touched) ? 'is-invalid' : ''"
+            type="text" name="correo" class="form-control" required [(ngModel)]="recuperarContrasena.correo" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Contraseña:</label>
+        <div class="col-sm-10">
+          <input #password="ngModel"
+            [ngClass]="password.invalid && (password.dirty || password.touched) ? 'is-invalid' : ''"
+            type="password" name="password" class="form-control" required [(ngModel)]="recuperarContrasena.password" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">
+          <i class="fa-solid fa-circle-plus me-1"></i>Recuperar contraseña
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

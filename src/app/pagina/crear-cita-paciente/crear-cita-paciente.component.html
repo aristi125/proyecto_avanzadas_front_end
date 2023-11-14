@@ -1,1 +1,88 @@
-<p>crear-cita-paciente works!</p>
+<div class="card">
+  <div class="card-header ps-5 pt-4 pb-4">
+    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Crear una nueva cita</h5>
+  </div>
+
+  <div class="card-body p-5">
+
+    <form #crear="ngForm">
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Nombre del Médico:</label>
+        <div class="col-sm-10">
+          <input #nombreMedico="ngModel"
+            [ngClass]="nombreMedico.invalid && (nombreMedico.dirty || nombreMedico.touched) ? 'is-invalid' : ''"
+            type="text" name="nombreMedico" class="form-control" required [(ngModel)]="crearCitaPaciente.nombreMedico" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Nombre del Paciente:</label>
+        <div class="col-sm-10">
+          <input #nombrePaciente="ngModel"
+            [ngClass]="nombrePaciente.invalid && (nombrePaciente.dirty || nombrePaciente.touched) ? 'is-invalid' : ''"
+            type="text" name="nombrePaciente" class="form-control" required [(ngModel)]="crearCitaPaciente.nombrePaciente" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Cédula del Médico:</label>
+        <div class="col-sm-10">
+          <input #cedulaMedico="ngModel"
+            [ngClass]="cedulaMedico.invalid && (cedulaMedico.dirty || cedulaMedico.touched) ? 'is-invalid' : ''"
+            type="text" name="cedulaMedico" class="form-control" required [(ngModel)]="crearCitaPaciente.cedulaMedico" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Cédula del Paciente:</label>
+        <div class="col-sm-10">
+          <input #cedulaPaciente="ngModel"
+            [ngClass]="cedulaPaciente.invalid && (cedulaPaciente.dirty || cedulaPaciente.touched) ? 'is-invalid' : ''"
+            type="text" name="cedulaPaciente" class="form-control" required [(ngModel)]="crearCitaPaciente.cedulaPaciente" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Motivo:</label>
+        <div class="col-sm-10">
+          <textarea #motivo="ngModel"
+            [ngClass]="motivo.invalid && (motivo.dirty || motivo.touched) ? 'is-invalid' : ''"
+            name="motivo" class="form-control" rows="3" required [(ngModel)]="crearCitaPaciente.motivo"></textarea>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Fecha de Cita:</label>
+        <div class="col-sm-10">
+          <input #fechaCita="ngModel"
+            [ngClass]="fechaCita.invalid && (fechaCita.dirty || fechaCita.touched) ? 'is-invalid' : ''"
+            type="date" name="fechaCita" [(ngModel)]="crearCitaPaciente.fechaCita" required (change)="validarFecha()" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Especialidad:</label>
+        <div class="col-sm-10">
+          <input #especialidad="ngModel"
+            [ngClass]="especialidad.invalid && (especialidad.dirty || especialidad.touched) ? 'is-invalid' : ''"
+            type="text" name="especialidad" class="form-control" required [(ngModel)]="crearCitaPaciente.especialidad" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Horarios:</label>
+        <div class="col-sm-10">
+          <input #horarios="ngModel"
+            [ngClass]="horarios.invalid && (horarios.dirty || horarios.touched) ? 'is-invalid' : ''"
+            type="text" name="horarios" class="form-control" required [(ngModel)]="crearCitaPaciente.horarios" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-primary" type="submit" [disabled]="crear.invalid">
+          <i class="fa-solid fa-circle-plus me-1"></i>Enviar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

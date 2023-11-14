@@ -1,1 +1,119 @@
-<p>editar-perfil works!</p>
+<div class="card">
+  <div class="card-header ps-5 pt-4 pb-4">
+    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Registro de un nuevo paciente</h5>
+  </div>
+  <div class="card-body p-5">
+    <form #formulario="ngForm">
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Código:</label>
+        <div class="col-sm-10">
+          <input #codigo="ngModel"
+            [ngClass]="codigo.invalid && (codigo.dirty || codigo.touched) ? 'is-invalid' : ''"
+            type="text" name="codigo" class="form-control" required [(ngModel)]="editarPerfilPaciente.codigo"
+            (keypress)="onlyNumberKey($event)" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Correo:</label>
+        <div class="col-sm-10">
+          <input #correo="ngModel"
+            [ngClass]="correo.invalid && (correo.dirty || correo.touched) ? 'is-invalid' : ''"
+            type="email" name="correo" class="form-control" required [(ngModel)]="editarPerfilPaciente.correo" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Nombre:</label>
+        <div class="col-sm-10">
+          <input #nombre="ngModel"
+            [ngClass]="nombre.invalid && (nombre.dirty || nombre.touched) ? 'is-invalid' : ''"
+            type="text" name="nombre" class="form-control" required [(ngModel)]="editarPerfilPaciente.nombre" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Cédula:</label>
+        <div class="col-sm-10">
+          <input #cedula="ngModel"
+            [ngClass]="cedula.invalid && (cedula.dirty || cedula.touched) ? 'is-invalid' : ''"
+            type="text" name="cedula" class="form-control" required [(ngModel)]="editarPerfilPaciente.cedula"
+            (keypress)="onlyNumberKey($event)" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Teléfono:</label>
+        <div class="col-sm-10">
+          <input #telefono="ngModel"
+            [ngClass]="telefono.invalid && (telefono.dirty || telefono.touched) ? 'is-invalid' : ''"
+            type="number" name="telefono" class="form-control" required [(ngModel)]="editarPerfilPaciente.telefono" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">URL de Foto:</label>
+        <div class="col-sm-10">
+          <input #urlFoto="ngModel"
+            [ngClass]="urlFoto.invalid && (urlFoto.dirty || urlFoto.touched) ? 'is-invalid' : ''"
+            type="text" name="urlFoto" class="form-control" [(ngModel)]="editarPerfilPaciente.urlFoto" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Fecha de Nacimiento:</label>
+        <div class="col-sm-10">
+          <input #fechaNacimiento="ngModel"
+            [ngClass]="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched) ? 'is-invalid' : ''"
+            type="date" name="fechaNacimiento" [(ngModel)]="editarPerfilPaciente.fechaNacimineto" required />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Alergias:</label>
+        <div class="col-sm-10">
+          <textarea #alergias="ngModel"
+            [ngClass]="alergias.invalid && (alergias.dirty || alergias.touched) ? 'is-invalid' : ''"
+            name="alergias" class="form-control" rows="3" [(ngModel)]="editarPerfilPaciente.alergias"></textarea>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Ciudad:</label>
+        <div class="col-sm-10">
+          <select name="ciudad" required class="form-select" [(ngModel)]="editarPerfilPaciente.ciudad">
+            <option value="" selected>Seleccione una ciudad</option>
+            <option [value]="item" *ngFor="let item of ciudades; index as i">{{item}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">EPS:</label>
+        <div class="col-sm-10">
+          <select name="eps" required class="form-select" [(ngModel)]="editarPerfilPaciente.eps">
+            <option value="" selected>Seleccione una eps</option>
+            <option [value]="item" *ngFor="let item of eps; index as i">{{item}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Tipo de Sangre:</label>
+        <div class="col-sm-10">
+          <select name="sangre" required class="form-select" [(ngModel)]="editarPerfilPaciente.tipoSangre">
+            <option value="" selected>Seleccione su tipo de sangre</option>
+            <option [value]="item" *ngFor="let item of tipoSangre; index as i">{{item}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">
+          <i class="fa-solid fa-circle-plus me-1"></i>Enviar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

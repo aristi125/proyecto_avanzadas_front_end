@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: "", component: InicioComponent },
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent },
-  { path: "editarPerdil", component: EditarPerfilComponent},
+  { path: "editarPerfil", component: EditarPerfilComponent},
   { path: "listarCitasPendientes", component: ListarCitasPendientesComponent},
   { path: "atenderCitas", component: AtenderCitasComponent},
   { path: "listarCitasRealizadas", component: ListarCitasRealizadasComponent},
@@ -35,10 +35,10 @@ const routes: Routes = [
   { path: "filtrarMedicoFechaPaciente", component: FiltrarMedicoFechaPacienteComponent},
   { path: "inicioMedico", component: InicioMedicoComponent},
   { path: "inicioPaciente", component: InicioPacienteComponent},
-  { path: "listarCitas", component: ListarCitaComponent},
+  { path: "listarCita", component: ListarCitaComponent},
   { path: "listarPqrsPaciente", component: ListarPqrsPacienteComponent},
   { path: "recuperarContrasena", component: RecuperarContrasenaComponent},
-  { path: "verDetalleCitaCliente", component: VerDetalleCitaComponent},
+  { path: "verDetalleCita", component: VerDetalleCitaComponent},
   { path: "verDetallePqrPaciente", component: VerDetallePqrPacienteComponent},
   { path: "**", pathMatch: "full", redirectTo: "" }
 ];

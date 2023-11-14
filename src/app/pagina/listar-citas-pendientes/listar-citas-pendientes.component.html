@@ -1,1 +1,28 @@
-<p>listar-citas-pendientes works!</p>
+<div class="card">
+  <div class="card-header ps-5 pt-4 pb-4">
+    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>citas pendietens paciente</h5>
+  </div>
+  <div class="card-body p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Código Cita</th>
+          <th>Nombre Médico</th>
+          <th>Fecha Cita</th>
+          <th>Especialidad</th>
+          <th>Estado Cita</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí puedes iterar sobre tus datos y llenar la tabla -->
+        <tr *ngFor="let cita of listaCitas">
+          <td>{{ cita.codigoCita }}</td>
+          <td>{{ cita.nombreMedico }}</td>
+          <td>{{ cita.fechaCita }}</td>
+          <td>{{ cita.especialidad }}</td>
+          <td>{{ cita.estadoCita }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

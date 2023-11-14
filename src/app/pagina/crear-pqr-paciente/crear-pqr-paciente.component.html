@@ -1,1 +1,45 @@
-<p>crear-pqr-paciente works!</p>
+<div class="card">
+
+  <div class="card-header ps-5 pt-4 pb-4">
+    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Crear un PQR </h5>
+  </div>
+  <div class="card-body p-5">
+
+    <form #formulario="ngForm">
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Código:</label>
+        <div class="col-sm-10">
+          <input #codigo="ngModel"
+            [ngClass]="codigo.invalid && (codigo.dirty || codigo.touched) ? 'is-invalid' : ''"
+            type="number" name="codigo" class="form-control" required [(ngModel)]="crearPqrPaciente.codigo"
+            (keypress)="onlyNumberKey($event)" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Tipo:</label>
+        <div class="col-sm-10">
+          <input #tipo="ngModel"
+            [ngClass]="tipo.invalid && (tipo.dirty || tipo.touched) ? 'is-invalid' : ''"
+            type="text" name="tipo" class="form-control" required [(ngModel)]="crearPqrPaciente.tipo" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Motivo:</label>
+        <div class="col-sm-10">
+          <textarea #motivo="ngModel"
+            [ngClass]="motivo.invalid && (motivo.dirty || motivo.touched) ? 'is-invalid' : ''"
+            name="motivo" class="form-control" rows="3" required [(ngModel)]="crearPqrPaciente.motivo"></textarea>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">
+          <i class="fa-solid fa-circle-plus me-1"></i>Enviar
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

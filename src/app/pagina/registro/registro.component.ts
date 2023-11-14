@@ -10,12 +10,18 @@ export class RegistroComponent {
 
   registroPacienteDTO: RegistroPacienteDTO;
   ciudades: string[];
+  eps : string[];
+  tipoSangre: string[];
   archivos!:FileList;
 
   constructor() {
     this.registroPacienteDTO = new RegistroPacienteDTO();
     this.ciudades = [];
+    this.eps = [];
+    this.tipoSangre = [];
     this.cargarCiudades();
+    this.cargarEPS();
+    this.cargarTipoSangre();
   }
 
   public registrar(){
@@ -37,6 +43,26 @@ export class RegistroComponent {
     this.ciudades.push("Manizales");
     this.ciudades.push("Medellín");
     }
+
+  private cargarEPS(){
+    this.eps.push("Nueva eps");
+    this.eps.push("Sura");
+    this.eps.push("Coomeva");
+    this.eps.push("Asmet salud");
+    this.eps.push("Sanitas");
+
+  }
+
+  private cargarTipoSangre(){
+    this.tipoSangre.push("A+");
+    this.tipoSangre.push("A-");
+    this.tipoSangre.push("B+");
+    this.tipoSangre.push("B-");
+    this.tipoSangre.push("AB+");
+    this.tipoSangre.push("AB-");
+    this.tipoSangre.push("O+");
+    this.tipoSangre.push("O-");
+  }
 
     public onFileChange(event:any){
       if (event.target.files.length > 0) {

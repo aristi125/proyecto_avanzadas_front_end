@@ -1,1 +1,41 @@
-<p>agendar-dia-libre works!</p>
+<div class="card">
+
+  <div class="card-header ps-5 pt-4 pb-4">
+    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Agendar dia libre
+      Medico</h5>
+  </div>
+  <div class="card-body p-5">
+
+    <form #diaL="ngForm">
+      <div>
+        <label class="col-sm-2 col-form-label">codigo:</label>
+        <div class="col-sm-10">
+          <input #codigo="ngModel" [ngClass]="codigo.invalid && (codigo.dirty || codigo.touched) ? 'is-invalid' : ''"
+            type="text" name="cedula" class="form-control" required [(ngModel)]="diaLibreDTO.codigo"
+            (keypress)="onlyNumberKey($event)" />
+        </div>
+      </div>
+
+      <div>
+        <label for="fechaInput">Fecha:</label>
+        <div class="col-sm-10">
+          <input #diaLibre="ngModel"
+            [ngClass]="diaLibre.invalid && (diaLibre.dirty || diaLibre.touched) ? 'is-invalid' : ''" type="date"
+            name="diaLibre" [(ngModel)]="diaLibreDTO.diaLibre" required="true" (change)="validarFecha()" />
+        </div>
+      </div>
+
+      <div *ngIf="fechaInvalida">
+        <p style="color: red;">La fecha seleccionada no es válida. Debe ser en el futuro.</p>
+      </div>
+      
+      <div>
+        <button class="btn btn-primary" type="submit" [disabled]="diaL.invalid">
+          <i class="fa-solid fa-circle-plus me-1"></i>Agendar
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

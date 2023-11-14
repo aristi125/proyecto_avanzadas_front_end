@@ -1,1 +1,34 @@
-<p>ver-detalle-pqr-paciente works!</p>
+<div class="card">
+  <div class="card-header ps-5 pt-4 pb-4">
+    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Ver detalles PQRS de un paciente</h5>
+  </div>
+  <div class="card-body p-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Estado PQRs</th>
+          <th>Motivo PQRs</th>
+          <th>Nombre Paciente</th>
+          <th>Nombre Médico</th>
+          <th>Especialidad</th>
+          <th>Fecha</th>
+          <th>Mensaje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Aquí puedes iterar sobre tus datos y llenar la tabla -->
+        <tr *ngFor="let item of listaPQRs">
+          <td>{{ item.codigo }}</td>
+          <td>{{ item.estadoPqrs }}</td>
+          <td>{{ item.motivoPqrs }}</td>
+          <td>{{ item.nombrePaciente }}</td>
+          <td>{{ item.nombreMedico }}</td>
+          <td>{{ item.especialidad }}</td>
+          <td>{{ item.fecha }}</td>
+          <td>{{ item.mensaje }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
