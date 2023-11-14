@@ -5,6 +5,7 @@ import { CrearPQRSDTO } from '../modelo/crear-pqrsdto';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PqrsService {
   pqrs: ItemPQRSDTO[];
 constructor() {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AgendarCitaPacienteDTO } from 'src/app/modelo/agendar-cita-paciente-dto';
+import { CitaService } from 'src/app/servicios/cita.service';
 
 
 @Component({
@@ -11,35 +12,22 @@ import { AgendarCitaPacienteDTO } from 'src/app/modelo/agendar-cita-paciente-dto
 export class CrearCitaPacienteComponent {
 
   crearCitaPaciente: AgendarCitaPacienteDTO;
-  especiaildad: string [];
 
-  constructor(){
+  constructor(private citaService: CitaService){
     this.crearCitaPaciente = new AgendarCitaPacienteDTO;
-    this.especiaildad = [];
-    this.cargarEspecialidad();
   }
 
-  public cargarEspecialidad(){
-    this.especiaildad.push("Cardiologia")
-    this.especiaildad.push("Neurologia")
-    this.especiaildad.push("Pedriata")
-    this.especiaildad.push("Oncologia")
-    this.especiaildad.push("Ortopedia")
-    this.especiaildad.push("Cirujano plastico")
+  public agendarCita(){
+    this.citaService.agendar(this.crearCitaPaciente);
+  }
+//NO TENTIENDO
+  public selecccionar(cedulaMedico:string){
+    this.crearCitaPaciente.cedulaMedico = cedulaMedico;
   }
 
-  fechaInvalida: boolean = false;
-
-  validarFecha() {
-    const fechaHoy = new Date();
-    const fechaSeleccionada = new Date(this.crearCitaPaciente.fechaCita);
-
-    // Verificar si la fecha seleccionada es en el futuro
-    if (fechaSeleccionada <= fechaHoy) {
-      this.fechaInvalida = true;
-    } else {
-      this.fechaInvalida = false;
-    }
+  onlyNumberKey(event: any) {
+    const charCode = event.which ? event.which : event.keyCode;
+    return !(charCode > 31 && (charCode < 48 || charCode > 57));
   }
 
 }

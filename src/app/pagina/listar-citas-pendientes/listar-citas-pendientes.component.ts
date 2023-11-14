@@ -1,6 +1,7 @@
 
 import { Component, importProvidersFrom } from '@angular/core';
 import { ItemCitaPendientePacienteDTO } from 'src/app/modelo/item-cita-pendiente-paciente-dto';
+import { CitaService } from 'src/app/servicios/cita.service';
 
 @Component({
   selector: 'app-listar-citas-pendientes',
@@ -9,12 +10,10 @@ import { ItemCitaPendientePacienteDTO } from 'src/app/modelo/item-cita-pendiente
 })
 
 export class ListarCitasPendientesComponent {
-  citasPendientes: ItemCitaPendientePacienteDTO;
-  listaCitas: any[] = [];
+  citasPendientes: ItemCitaPendientePacienteDTO[];
 
-  constructor(){
-    this.citasPendientes = new ItemCitaPendientePacienteDTO;
-    this.listaCitas = [];
+  constructor(private citasService: CitaService){
+    this.citasPendientes = citasService.listar();
   }
 
 }
