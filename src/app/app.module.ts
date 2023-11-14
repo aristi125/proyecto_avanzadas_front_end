@@ -22,6 +22,7 @@ import { ListarPqrsPacienteComponent } from './pagina/listar-pqrs-paciente/lista
 import { RecuperarContrasenaComponent } from './pagina/recuperar-contrasena/recuperar-contrasena.component';
 import { VerDetalleCitaComponent } from './pagina/ver-detalle-cita/ver-detalle-cita.component';
 import { VerDetallePqrPacienteComponent } from './pagina/ver-detalle-pqr-paciente/ver-detalle-pqr-paciente.component';
+import { ListarCitasPendientesMedicoComponent } from './pagina/listar-citas-pendientes-medico/listar-citas-pendientes-medico.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { VerDetallePqrPacienteComponent } from './pagina/ver-detalle-pqr-pacient
     ListarPqrsPacienteComponent,
     RecuperarContrasenaComponent,
     VerDetalleCitaComponent,
-    VerDetallePqrPacienteComponent
+    VerDetallePqrPacienteComponent,
+    ListarCitasPendientesMedicoComponent
 
   ],
   imports: [
