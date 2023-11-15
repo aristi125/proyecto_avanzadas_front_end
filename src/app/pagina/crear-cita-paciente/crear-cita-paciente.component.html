@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header ps-5 pt-4 pb-4">
-    <h5 class="mb-0"><i class="fa-solid fa-file-circle-plus me-2"></i>Crear nueva PQRS</h5>
+    <h5 class="mb-0"><i class="fa-solid fa-file-circle-plus me-2"></i>Crear nueva Cita</h5>
   </div>
   <div class="card-body p-5">
     <form #f="ngForm" (ngSubmit)="agendarCita()">
@@ -18,57 +18,93 @@
           </select>
         </div>
       </div>
-      <div class="mb-3 row">
-        <label class="col-sm-2 col-form-label">Elija la cita: </label>
+
+      <div class="mb-3 fila">
+        <label class="col-sm-2 col-form-label">Nombre paciente: </label>
         <div class="col-sm-10">
-          <table class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th></th>
-                <th>Código</th>
-                <th>Especialidad</th>
-                <th>Fecha cita</th>
-                <th>Médico</th>
-              </tr>
-            </thead>
-            <tbody class="table-group-divider">
-              <tr>
-                <td><input class="form-check-input" type="checkbox" (change)="selecccionar('1234567809')" /></td>
-                <td>
-                  <p>1</p>
-                </td>
-                <td>
-                  <p>Cardiología</p>
-                </td>
-                <td>
-                  <p>2023-10-20</p>
-                </td>
-                <td>
-                  <p>Pedrito</p>
-                </td>
-              </tr>
-              <tr>
-                <td><input class="form-check-input" type="checkbox" (change)="selecccionar('1234567890')" /></td>
-                <td>
-                  <p>2</p>
-                </td>
-                <td>
-                  <p>Neurología</p>
-                </td>
-                <td>
-                  <p>2023-10-10</p>
-                </td>
-                <td>
-                  <p>Juanito</p>
-                </td>
-              </tr>
-              <!-- Agrega más filas según tus necesidades -->
-            </tbody>
-          </table>
+          <input
+            #nombrePaciente="ngModel"
+            [ngClass]="nombrePaciente.invalid && (nombrePaciente.dirty || nombrePaciente.touched) ? 'is-invalid' : ''"
+            type="text"
+            [(ngModel)]="crearCitaPaciente.nombrePaciente"
+            name="nombrePaciente"
+            required
+            class="form-control"
+          />
         </div>
       </div>
-      <div class="mb-3 row">
+
+      <div class="mb-3 fila">
+        <label class="col-sm-2 col-form-label">Cédula médico: </label>
+        <div class="col-sm-10">
+          <input
+            #cedulaMedico="ngModel"
+            [ngClass]="cedulaMedico.invalid && (cedulaMedico.dirty || cedulaMedico.touched) ? 'is-invalid' : ''"
+            type="text"
+            [(ngModel)]="crearCitaPaciente.cedulaMedico"
+            name="cedulaMedico"
+            required
+            class="form-control"
+          />
+        </div>
+
+      </div>
+      <div class="mb-3 fila">
+        <label class="col-sm-2 col-form-label">Cédula paciente: </label>
+        <div class="col-sm-10">
+          <input
+            #cedulaPaciente="ngModel"
+            [ngClass]="cedulaPaciente.invalid && (cedulaPaciente.dirty || cedulaPaciente.touched) ? 'is-invalid' : ''"
+            type="text"
+            [(ngModel)]="crearCitaPaciente.cedulaPaciente"
+            name="cedulaPaciente"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3 fila">
         <label class="col-sm-2 col-form-label">Motivo: </label>
+        <div class="col-sm-10">
+          <input
+            #motivo="ngModel"
+            [ngClass]="motivo.invalid && (motivo.dirty || motivo.touched) ? 'is-invalid' : ''"
+            type="text"
+            [(ngModel)]="crearCitaPaciente.motivo"
+            name="motivo"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div class="mb-3 fila">
+        <label class="col-sm-2 col-form-label">Horarios: </label>
+        <div class="col-sm-10">
+          <input
+            #horarios="ngModel"
+            [ngClass]="horarios.invalid && (horarios.dirty || horarios.touched) ? 'is-invalid' : ''"
+            type="text"
+            [(ngModel)]="crearCitaPaciente.horarios"
+            name="horarios"
+            required
+            class="form-control"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="fechaInput">Fecha:</label>
+        <div class="col-sm-10">
+          <input #diaLibre="ngModel"
+            [ngClass]="diaLibre.invalid && (diaLibre.dirty || diaLibre.touched) ? 'is-invalid' : ''" type="date"
+            name="diaLibre" [(ngModel)]="crearCitaPaciente.fechaCita" required="true" (change)="validarFecha()" />
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">nombre medico: </label>
         <div class="col-sm-10">
           <input #nombreMedico="ngModel"
                  [ngClass]="nombreMedico.invalid && (nombreMedico.dirty || nombreMedico.touched) ? 'is-invalid' : ''"

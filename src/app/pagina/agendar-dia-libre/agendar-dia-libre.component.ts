@@ -16,12 +16,13 @@ export class AgendarDiaLibreComponent {
 
   }
 
-  fechaInvalida: boolean = false;
-
   onlyNumberKey(event: any) {
     const charCode = event.which ? event.which : event.keyCode;
     return !(charCode > 31 && (charCode < 48 || charCode > 57));
   }
+
+  fechaInvalida: boolean = false;
+
 
   validarFecha() {
     const fechaHoy = new Date();

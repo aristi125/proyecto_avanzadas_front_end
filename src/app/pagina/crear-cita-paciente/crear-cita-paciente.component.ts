@@ -30,4 +30,19 @@ export class CrearCitaPacienteComponent {
     return !(charCode > 31 && (charCode < 48 || charCode > 57));
   }
 
+  fechaInvalida: boolean = false;
+
+
+  validarFecha() {
+    const fechaHoy = new Date();
+    const fechaSeleccionada = new Date(this.crearCitaPaciente.fechaCita);
+
+    // Verificar si la fecha seleccionada es en el futuro
+    if (fechaSeleccionada <= fechaHoy) {
+      this.fechaInvalida = true;
+    } else {
+      this.fechaInvalida = false;
+    }
+  }
+
 }
