@@ -3,7 +3,9 @@
     <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Inicio de Sesión</h5>
   </div>
   <div class="card-body p-5">
+
     <form #formulario="ngForm">
+
       <div class="login-container" style="display: grid; grid-template-columns: 1fr 1fr; align-items: center;">
         <div class="form-group">
           <label for="correo">Usuario o Correo:</label>
@@ -20,10 +22,12 @@
         <br>
 
         <div class="mb-3">
-          <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">
+          <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid" (click)="login()">
             <i class="fa-solid fa-circle-plus me-1"></i>Entrar
           </button>
         </div>
+
+        <app-alerta [alerta]="alerta"></app-alerta>
 
         <div class="mb-3">
           <button class="btn btn-outline-light me-2 recuperar-contrasena" type="button" [routerLink]="['/recuperarContrasena']">

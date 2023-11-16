@@ -29,7 +29,7 @@ export class RegistroComponent {
   }
 
   public registrar() {
-    if (this.registroPacienteDTO.urlFoto.length != 0) {
+    if (this.registroPacienteDTO.urlfoto.length != 0) {
       //ACÁ EN REGISTRARpACIENTE EL PARAMETRO ESTA BIEN CON this.registroPacietneDTO
 
       this.authService.registrarPaciente(this.registroPacienteDTO).subscribe({
@@ -44,10 +44,6 @@ export class RegistroComponent {
       this.alerta = { mensaje: "Debe subir una imagen", tipo: "danger" };
     }
 
-  }
-
-  public sonIguales(): boolean {
-    return this.registroPacienteDTO.password == this.registroPacienteDTO.confirmaPassword;
   }
 
   private cargarCiudades() {
@@ -86,7 +82,7 @@ export class RegistroComponent {
 
   public onFileChange(event: any) {
     if (event.target.files.length > 0) {
-      this.registroPacienteDTO.urlFoto = event.target.files[0].name;
+      this.registroPacienteDTO.urlfoto = event.target.files[0].name;
       this.archivos = event.target.files;
     }
   }
@@ -97,7 +93,7 @@ export class RegistroComponent {
       formData.append('file', this.archivos[0]);
       this.imagenService.subir(formData).subscribe({
         next: data => {
-          this.registroPacienteDTO.urlFoto = data.respuesta.url;
+          this.registroPacienteDTO.urlfoto = data.respuesta.url;
         },
         error: error => {
           this.alerta = { mensaje: error.error, tipo: "danger" };

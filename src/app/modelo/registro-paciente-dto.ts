@@ -2,7 +2,7 @@ export class RegistroPacienteDTO {
   cedula: string = "";
   nombre: string = "";
   telefono: string = "";
-  urlFoto: string = "";
+  urlfoto: string = "";
   ciudad: string = "";
   fechaNacimiento: string = "";
   alergias: string = "";
@@ -10,5 +10,4 @@ export class RegistroPacienteDTO {
   tipoSangre: string = "";
   correo: string = "";
   password: string = "";
-  confirmaPassword: string = "";
 }

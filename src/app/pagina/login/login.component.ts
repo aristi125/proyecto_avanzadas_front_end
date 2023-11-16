@@ -21,6 +21,20 @@ export class LoginComponent {
   public ingresar() {
     //que se debe hacer para validar si
     //lo que ingreso esta malo, se deben crear variables
+    if (this.loginDTO.correo ) {
+      //ACÁ EN REGISTRARpACIENTE EL PARAMETRO ESTA BIEN CON this.registroPacietneDTO
+
+      this.authService.login(this.loginDTO).subscribe({
+        next: data => {
+          this.alerta = { mensaje: data.respuesta, tipo: "success" };
+        },
+        error: error => {
+          this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
+        }
+      });
+    } else {
+      this.alerta = { mensaje: "Debe ingresar los datos correctos", tipo: "danger" };
+    }
   }
 
   public login() {
