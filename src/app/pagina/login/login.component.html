@@ -18,10 +18,16 @@
         </div>
 
         <br>
-        
+
         <div class="mb-3">
           <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">
             <i class="fa-solid fa-circle-plus me-1"></i>Entrar
+          </button>
+        </div>
+
+        <div class="mb-3">
+          <button class="btn btn-outline-light me-2 recuperar-contrasena" type="button" [routerLink]="['/recuperarContrasena']">
+            <i class="fa-solid fa-key me-1"></i>Recuperar Contraseña
           </button>
         </div>
 

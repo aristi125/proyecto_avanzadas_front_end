@@ -21,8 +21,8 @@ export class CrearCitaPacienteComponent {
     this.citaService.agendar(this.crearCitaPaciente);
   }
 //NO TENTIENDO
-  public selecccionar(cedulaMedico:string){
-    this.crearCitaPaciente.cedulaMedico = cedulaMedico;
+  public selecccionar(codigoMedico:string){
+    this.crearCitaPaciente.codigoMedico = codigoMedico;
   }
 
   onlyNumberKey(event: any) {

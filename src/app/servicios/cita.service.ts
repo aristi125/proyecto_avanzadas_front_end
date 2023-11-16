@@ -29,7 +29,7 @@ export class CitaService {
 
   public agendar(citas: AgendarCitaPacienteDTO){
     let codigoCita = this.citas.length +1;
-    this.citas.push({codigoCita: codigoCita, nombreMedico: citas.nombreMedico, fechaCita: new Date().toISOString(),
+    this.citas.push({codigoCita: codigoCita, nombreMedico: citas.codigoMedico, fechaCita: new Date().toISOString(),
     especialidad: citas.especialidad, estadoCita: 'PROGRAMADA'});
   }
 }

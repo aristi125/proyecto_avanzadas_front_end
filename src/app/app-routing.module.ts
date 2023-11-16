@@ -39,8 +39,8 @@ const routes: Routes = [
   { path: "listarCita", component: ListarCitaComponent},
   { path: "listarPqrsPaciente", component: ListarPqrsPacienteComponent},
   { path: "recuperarContrasena", component: RecuperarContrasenaComponent},
-  { path: "verDetalleCita", component: VerDetalleCitaComponent},
-  { path: "verDetallePqrPaciente", component: VerDetallePqrPacienteComponent},
+  { path: "verDetalleCita/:codigo", component: VerDetalleCitaComponent},
+  { path: "verDetallePqrPaciente/:codigo", component: VerDetallePqrPacienteComponent},
   {path: "listarCitasPendientesMedico", component: ListarCitasPendientesMedicoComponent},
   { path: "**", pathMatch: "full", redirectTo: "" }
 ];

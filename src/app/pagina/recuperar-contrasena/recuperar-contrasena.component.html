@@ -4,24 +4,6 @@
   </div>
   <div class="card-body p-5">
     <form #formulario="ngForm">
-      <div class="mb-3">
-        <label class="col-sm-2 col-form-label">Código:</label>
-        <div class="col-sm-10">
-          <input #codigotipo="ngModel"
-            [ngClass]="codigotipo.invalid && (codigotipo.dirty || codigotipo.touched) ? 'is-invalid' : ''"
-            type="text" name="codigotipo" class="form-control" required [(ngModel)]="recuperarContrasena.codigo"
-            (keypress)="onlyNumberKey($event)" />
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <label class="col-sm-2 col-form-label">Nombre:</label>
-        <div class="col-sm-10">
-          <input #nombre="ngModel"
-            [ngClass]="nombre.invalid && (nombre.dirty || nombre.touched) ? 'is-invalid' : ''"
-            type="text" name="nombre" class="form-control" required [(ngModel)]="recuperarContrasena.nombre" />
-        </div>
-      </div>
 
       <div class="mb-3">
         <label class="col-sm-2 col-form-label">Correo:</label>

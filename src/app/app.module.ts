@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { RecuperarContrasenaComponent } from './pagina/recuperar-contrasena/recu
 import { VerDetalleCitaComponent } from './pagina/ver-detalle-cita/ver-detalle-cita.component';
 import { VerDetallePqrPacienteComponent } from './pagina/ver-detalle-pqr-paciente/ver-detalle-pqr-paciente.component';
 import { ListarCitasPendientesMedicoComponent } from './pagina/listar-citas-pendientes-medico/listar-citas-pendientes-medico.component';
+import { AlertaComponent } from './pagina/alerta/alerta.component';
 
 
 @NgModule({
@@ -46,13 +48,15 @@ import { ListarCitasPendientesMedicoComponent } from './pagina/listar-citas-pend
     RecuperarContrasenaComponent,
     VerDetalleCitaComponent,
     VerDetallePqrPacienteComponent,
-    ListarCitasPendientesMedicoComponent
+    ListarCitasPendientesMedicoComponent,
+    AlertaComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
