@@ -8,14 +8,9 @@
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Especialidad: </label>
         <div class="col-sm-10">
-          <select name="especialidad" required class="form-select" [(ngModel)]="crearCitaPaciente.especialidad">
-            <option value="" selected>Seleccione una especialidad</option>
-            <option value="Cardiologia">Cardiología</option>
-            <option value="Neurologia">Neurología</option>
-            <option value="Pedriata">Pedriatría</option>
-            <option value="Oncologia">Oncología</option>
-            <option value="Ortopedia">Ortopedia</option>
-            <option value="Cirujano plastico">Cirujano Plástico</option>
+          <select name="eps" required class="form-select" [(ngModel)]="crearCitaPaciente.especialidad">
+            <option value="" selected>Seleccione una eps</option>
+            <option [value]="item" *ngFor="let item of especialidad; index as i">{{item}}</option>
           </select>
         </div>
       </div>

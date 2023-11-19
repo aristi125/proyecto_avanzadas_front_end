@@ -31,7 +31,6 @@ export class RegistroComponent {
   public registrar() {
     if (this.registroPacienteDTO.urlfoto.length != 0) {
       //ACÁ EN REGISTRARpACIENTE EL PARAMETRO ESTA BIEN CON this.registroPacietneDTO
-
       this.authService.registrarPaciente(this.registroPacienteDTO).subscribe({
         next: data => {
           this.alerta = { mensaje: data.respuesta, tipo: "success" };

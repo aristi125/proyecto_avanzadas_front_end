@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ItemPQRSDTO } from 'src/app/modelo/item-pqrsdto';
 import { PacienteService } from 'src/app/servicios/paciente.service';
-import { PqrsService } from 'src/app/servicios/pqrs.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
 
@@ -18,6 +17,7 @@ export class ListarPqrsPacienteComponent {
     this.pqrs = [];
     this.obtenerPqrs();
   }
+
   public obtenerPqrs() {
     let codigo = this.tokenService.getCodigo();
     this.pacienteService.listarPQRSPaciente(codigo).subscribe({

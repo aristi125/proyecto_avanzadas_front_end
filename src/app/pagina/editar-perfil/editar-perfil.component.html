@@ -97,15 +97,42 @@
       </div>
 
       <div class="mb-3">
-        <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid">
+        <button class="btn btn-primary" type="submit" [disabled]="formulario.invalid" (click)="editarPerfil()">
           <i class="fa-solid fa-circle-plus me-1"></i>Enviar
         </button>
       </div>
 
       <div class="mb-3">
         <!--(click)="eliminarCuenta()" va en el boton eliminar cuenta-->
-        <button class="btn btn-danger" type="button">
+        <button class="btn btn-danger" type="submit" (click)="eliminarCuenta()">
           <i class="fa-solid fa-trash me-1"></i>Eliminar Cuenta
+        </button>
+      </div>
+
+      <hr class="separator">
+
+      <h5 class="mb-3">Cambiar La Contraseña</h5>
+
+      <div class="mb-3">
+        <label class="col-sm-2 col-form-label">Correo:</label>
+        <div class="col-sm-10">
+          <input #correo="ngModel" [ngClass]="correo.invalid && (correo.dirty || correo.touched) ? 'is-invalid' : ''"
+            type="email" name="correo" class="form-control" required [(ngModel)]="cambiarPasswordDTO.correo" />
+        </div>
+      </div>
+
+      <div class="mb-3 ">
+        <label class="col-sm-2 col-form-label"> Nueva Contraseña: </label>
+        <div class="col-sm-10">
+          <input #password="ngModel"
+            [ngClass]="password.invalid && (password.dirty || password.touched) ? 'is-invalid' : ''" type="password"
+            name="password" class="form-control" [(ngModel)]="cambiarPasswordDTO.password" required="true" />
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <button class="btn btn-primary" type="submit"  (click)="cambiarContrasena()">
+          <i class="fa-solid fa-key me-1"></i>Cambiar Contraseña
         </button>
       </div>
 

@@ -15,9 +15,9 @@
           <th>Motivo</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="table-group-divider">
         <!-- Aquí puedes iterar sobre tus datos y llenar la tabla -->
-        <tr *ngFor="let paciente of listaPacientes">
+        <tr *ngFor="let paciente of detalleCita">
           <td>{{ paciente.codigo }}</td>
           <td>{{ paciente.nombre }}</td>
           <td>{{ paciente.cedula }}</td>
