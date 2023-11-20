@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header ps-5 pt-4 pb-4">
-    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Registro de un nuevo paciente</h5>
+    <h5 class="mb-0"><i class="fa-solid fa-user-plus me-3"></i>Citas pendientes nuevo paciente</h5>
   </div>
   <div class="card-body p-5">
     <table class="table">
@@ -13,11 +13,12 @@
           <th>Fecha Cita Futura</th>
           <th>EPS</th>
           <th>Estado Cita</th>
+          <th>Ver Detalle</th>
         </tr>
       </thead>
       <tbody>
         <!-- Aquí puedes iterar sobre tus datos y llenar la tabla -->
-        <tr *ngFor="let cita of listaCitasMedico">
+        <tr *ngFor="let cita of listarCitasPendientesMedico">
           <td>{{ cita.codigoCita }}</td>
           <td>{{ cita.cedulaPaciente }}</td>
           <td>{{ cita.nombrePaciente }}</td>
@@ -25,9 +26,15 @@
           <td>{{ cita.fechaCitasFutura }}</td>
           <td>{{ cita.eps }}</td>
           <td>{{ cita.estadoCita }}</td>
+          <td>
+            <a routerLink="/verDetalleCita/{{ cita.codigoCita }}">
+              <i class="fa-solid fa-circle-info me-2"></i> Ver detalle
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+
 

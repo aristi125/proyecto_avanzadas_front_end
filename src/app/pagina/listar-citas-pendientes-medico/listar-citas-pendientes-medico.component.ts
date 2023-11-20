@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ItemCitasPendienteDTOMedico } from 'src/app/modelo/item-citas-pendiente-dtomedico';
+import { MedicoService } from 'src/app/servicios/medico.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 
 @Component({
@@ -9,12 +11,23 @@ import { ItemCitasPendienteDTOMedico } from 'src/app/modelo/item-citas-pendiente
 })
 
 export class ListarCitasPendientesMedicoComponent {
-  listarCitasPendientesMedico: ItemCitasPendienteDTOMedico;
-  listaCitasMedico: any[] = [];
+  listarCitasPendientesMedico: ItemCitasPendienteDTOMedico[];
 
-  constructor(){
-    this.listarCitasPendientesMedico= new ItemCitasPendienteDTOMedico;
-    this.listaCitasMedico = [];
+  constructor(private medicoService: MedicoService, private tokenService: TokenService){
+    this.listarCitasPendientesMedico= [];
+    this.obtenerCitasPendientes();
+  }
+
+  public obtenerCitasPendientes(){
+    let codigo = this.tokenService.getCodigo();
+    this.medicoService.listarCitasPendientes(codigo).subscribe({
+      next: data => {
+        this.listarCitasPendientesMedico = data.respuesta;
+      },
+      error: error => {
+        console.log(error);
+      }
+    });
   }
 
 }

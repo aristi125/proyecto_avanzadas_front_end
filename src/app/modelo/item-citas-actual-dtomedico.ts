@@ -1,4 +1,4 @@
-export class ItemCitasActualDTOMedico {
+export class  ItemCitasActualDTOMedico {
   codigoCita: number = 0;
   cedulaPaciente: string = "";
   nombrePaciente: string = "";

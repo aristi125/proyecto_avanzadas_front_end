@@ -9,14 +9,15 @@ import { LoginDTO } from '../modelo/login-dto';
 })
 export class AuthService {
   private authURL = "http://localhost:8081/api/auth";
+
   constructor(private http: HttpClient) { }
 
   public registrarPaciente(paciente: RegistroPacienteDTO): Observable<MensajeDTO> {
     return this.http.post<MensajeDTO>(`${this.authURL}/registrar`, paciente);
   }
 
-  public login(loginDTO: LoginDTO): Observable<MensajeDTO> {
-    return this.http.post<MensajeDTO>(`${this.authURL}/login`, loginDTO);
-  }
+public login(loginDTO:LoginDTO):Observable<MensajeDTO>{
+  return this.http.post<MensajeDTO>(`${this.authURL}/login`, loginDTO);
+}
 
 }

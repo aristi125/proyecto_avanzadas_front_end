@@ -6,7 +6,7 @@
   </div>
   <div class="card-body p-5">
 
-    <form #diaL="ngForm">
+    <form #diaL="ngForm" (ngSubmit)="obtenerDiaLibre()">
 
       <div>
         <label for="fechaInput">Fecha:</label>

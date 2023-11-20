@@ -14,7 +14,7 @@ export class LoginComponent {
 
   alerta!: Alerta;
 
-  constructor(private authService: AuthService, private tokenService: TokenService) {
+  constructor(private tokenService: TokenService, private authService: AuthService) {
     this.loginDTO = new LoginDTO;
   }
 
@@ -43,7 +43,7 @@ export class LoginComponent {
         this.tokenService.login(data.respuesta.token);
       },
       error: error => {
-        this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
+      this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
       }
     });
   }

@@ -35,9 +35,11 @@
         </div>
       </div>
 
-      <button class="btn btn-primary" type="submit" [disabled]="citaForm.invalid">
+      <button class="btn btn-primary" type="submit" [disabled]="citaForm.invalid" (click)="atenderCitas()">
         <i class="fa-solid fa-circle-plus me-1"></i>Enviar
       </button>
+
+      <app-alerta [alerta]="alerta"></app-alerta>
 
     </form>
 

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Alerta } from 'src/app/modelo/alerta';
 import { DiaLibreDTO } from 'src/app/modelo/dia-libre-dto';
+import { MedicoService } from 'src/app/servicios/medico.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 
 @Component({
@@ -10,16 +13,30 @@ import { DiaLibreDTO } from 'src/app/modelo/dia-libre-dto';
 
 export class AgendarDiaLibreComponent {
   diaLibreDTO: DiaLibreDTO;
+  alerta!: Alerta;
 
-  constructor(){
+  constructor(private medicoService: MedicoService,private tokenService: TokenService){
     this.diaLibreDTO = new DiaLibreDTO();
+    this.obtenerDiaLibre();
 
+  }
+
+  public obtenerDiaLibre(){
+    this.medicoService.agendarDiaLibre(this.diaLibreDTO).subscribe({
+      next: data => {
+        this.alerta = { mensaje: data.respuesta, tipo: "success" };
+      },
+      error: error => {
+        this.alerta = { mensaje: error.error.respuesta, tipo: "danger" };
+      }
+    });
   }
 
   onlyNumberKey(event: any) {
     const charCode = event.which ? event.which : event.keyCode;
     return !(charCode > 31 && (charCode < 48 || charCode > 57));
   }
+
 
   fechaInvalida: boolean = false;
 
