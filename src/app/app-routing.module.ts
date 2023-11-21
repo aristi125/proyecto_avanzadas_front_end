@@ -48,6 +48,26 @@ const routes: Routes = [
   { path: "login", component: LoginComponent, canActivate: [LoginGuard] },
   { path: "registro", component: RegistroComponent, canActivate: [LoginGuard] },
   {
+    path: "editar-perfil", component: EditarPerfilComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["paciente"]
+    }
+  },
+  {
+    path: "agendar-cita", component: AgendarDiaLibreComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["paciente"]
+    }
+  },
+  {
+    path: "filtrar-citas-por-fecha", component: FiltrarMedicoFechaPacienteComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["paciente"]
+    }
+  },
+  {
+    path: "filtrar-citas-por-medico`", component: FiltrarMedicoFechaPacienteComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["paciente"]
+    }
+  },
+  {
     path: "listar-pqrs/:codigo", component: ListarPqrsPacienteComponent, canActivate: [RolesGuard], data: {
       expectedRole: ["paciente"]
     }
@@ -61,7 +81,21 @@ const routes: Routes = [
     path: "ver-detalle-pqrs/:codigo", component: VerDetallePqrPacienteComponent, canActivate: [RolesGuard],
     data: { expectedRole: ["paciente", "admin"] }
   },
- 
+  {
+    path: "atender-citas", component: AtenderCitasComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["medico"]
+    }
+  },
+  {
+    path: "listar-citas-pendientes", component: ListarCitasPendientesComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["medico"]
+    }
+  },
+  {
+    path: "agendar-dia-libre", component: AgendarDiaLibreComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["medico"]
+    }
+  },
   { path: "**", pathMatch: "full", redirectTo: "" }
 ];
 

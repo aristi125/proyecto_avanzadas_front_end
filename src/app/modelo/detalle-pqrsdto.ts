@@ -1,11 +1,11 @@
 export class DetallePQRSDTO {
   codigo: number = 0;
-  estadoPqrs: string = ""; //enum
+  estadoPqrs: string = "";
   motivoPqrs: string = "";
   nombrePaciente: string = "";
   nombreMedico: string = "";
-  especialidad: string = ""; //enum
+  especialidad: string = "";
   fecha: string = "";
-  mensaje: string = ""; //List<RespuestaDTO>
+  mensaje: string = "";
 
 }
