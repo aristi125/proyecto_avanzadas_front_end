@@ -20,28 +20,48 @@ import { RecuperarContrasenaComponent } from './pagina/recuperar-contrasena/recu
 import { VerDetalleCitaComponent } from './pagina/ver-detalle-cita/ver-detalle-cita.component';
 import { VerDetallePqrPacienteComponent } from './pagina/ver-detalle-pqr-paciente/ver-detalle-pqr-paciente.component';
 import { ListarCitasPendientesMedicoComponent } from './pagina/listar-citas-pendientes-medico/listar-citas-pendientes-medico.component';
+import { LoginGuard } from './guards/permiso.service';
+import { RolesGuard } from './guards/roles.service';
+
 
 
 const routes: Routes = [
   { path: "", component: InicioComponent },
   { path: "login", component: LoginComponent },
   { path: "registro", component: RegistroComponent },
-  { path: "editarPerfil", component: EditarPerfilComponent},
-  { path: "listarCitasPendientes", component: ListarCitasPendientesComponent},
-  { path: "atenderCitas", component: AtenderCitasComponent},
-  { path: "listarCitasRealizadas", component: ListarCitasRealizadasComponent},
-  { path: "agendarDiaLibre", component: AgendarDiaLibreComponent},
-  { path: "crearCitaPaciente", component: CrearCitaPacienteComponent},
-  { path: "crearPqrPaciente", component: CrearPqrPacienteComponent},
-  { path: "filtrarMedicoFechaPaciente", component: FiltrarMedicoFechaPacienteComponent},
-  { path: "inicioMedico", component: InicioMedicoComponent},
-  { path: "inicioPaciente", component: InicioPacienteComponent},
-  { path: "listarCita", component: ListarCitaComponent},
-  { path: "listarPqrsPaciente", component: ListarPqrsPacienteComponent},
-  { path: "recuperarContrasena", component: RecuperarContrasenaComponent},
-  { path: "verDetalleCita/:codigo", component: VerDetalleCitaComponent},
-  { path: "verDetallePqrPaciente/:codigo", component: VerDetallePqrPacienteComponent},
-  {path: "listarCitasPendientesMedico", component: ListarCitasPendientesMedicoComponent},
+  { path: "editarPerfil", component: EditarPerfilComponent },
+  { path: "listarCitasPendientes", component: ListarCitasPendientesComponent },
+  { path: "atenderCitas", component: AtenderCitasComponent },
+  { path: "listarCitasRealizadas", component: ListarCitasRealizadasComponent },
+  { path: "agendarDiaLibre", component: AgendarDiaLibreComponent },
+  { path: "crearCitaPaciente", component: CrearCitaPacienteComponent },
+  { path: "crearPqrPaciente", component: CrearPqrPacienteComponent },
+  { path: "filtrarMedicoFechaPaciente", component: FiltrarMedicoFechaPacienteComponent },
+  { path: "inicioMedico", component: InicioMedicoComponent },
+  { path: "inicioPaciente", component: InicioPacienteComponent },
+  { path: "listarCita", component: ListarCitaComponent },
+  { path: "listarPqrsPaciente", component: ListarPqrsPacienteComponent },
+  { path: "recuperarContrasena", component: RecuperarContrasenaComponent },
+  { path: "verDetalleCita/:codigo", component: VerDetalleCitaComponent },
+  { path: "verDetallePqrPaciente/:codigo", component: VerDetallePqrPacienteComponent },
+  { path: "listarCitasPendientesMedico", component: ListarCitasPendientesMedicoComponent },
+  { path: "login", component: LoginComponent, canActivate: [LoginGuard] },
+  { path: "registro", component: RegistroComponent, canActivate: [LoginGuard] },
+  {
+    path: "listar-pqrs/:codigo", component: ListarPqrsPacienteComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["paciente"]
+    }
+  },
+  {
+    path: "crear-pqrs", component: CrearPqrPacienteComponent, canActivate: [RolesGuard], data: {
+      expectedRole: ["paciente"]
+    }
+  },
+  {
+    path: "ver-detalle-pqrs/:codigo", component: VerDetallePqrPacienteComponent, canActivate: [RolesGuard],
+    data: { expectedRole: ["paciente", "admin"] }
+  },
+ 
   { path: "**", pathMatch: "full", redirectTo: "" }
 ];
 

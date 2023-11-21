@@ -7,13 +7,9 @@
       <div class="mb-3 row">
         <label class="col-sm-2 col-form-label">Tipo: </label>
         <div class="col-sm-10">
-          <select name="tipo" required class="form-select" [(ngModel)]="crearPqrPaciente.tipo">
-
-            <option value="" selected>Seleccione un tipo</option>
-            <option value="Queja">Queja</option>
-            <option value="Reclamo">Reclamo</option>
-            <option value="Sugerencia">Sugerencia</option>
-            <option value="Petición">Petición</option>
+          <select name="ciudad" required class="form-select" [(ngModel)]="crearPqrPaciente.tipo">
+            <option value="" selected>Seleccione una ciudad</option>
+            <option [value]="item" *ngFor="let item of tipo; index as i">{{item}}</option>
           </select>
         </div>
       </div>

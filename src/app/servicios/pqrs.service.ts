@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ItemPQRSDTO } from '../modelo/item-pqrsdto';
 import { CrearPQRSDTO } from '../modelo/crear-pqrsdto';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { CrearPQRSDTO } from '../modelo/crear-pqrsdto';
 
 export class PqrsService {
   pqrs: ItemPQRSDTO[];
-constructor() {
+constructor(private http: HttpClient) {
 this.pqrs = [];
 this.pqrs.push({ codigo: 1, estadoPqrs: 'ACTIVO', motivo: 'Solicitud de información', fecha:
 '2023-10-12' });

@@ -7,6 +7,7 @@ import { ImagenService } from 'src/app/servicios/imagen.service';
 import { PacienteService } from 'src/app/servicios/paciente.service';
 import { TokenService } from 'src/app/servicios/token.service';
 
+
 @Component({
   selector: 'app-editar-perfil',
   templateUrl: './editar-perfil.component.html',
@@ -18,6 +19,7 @@ export class EditarPerfilComponent {
   ciudades: string[];
   eps: string[];
   tipoSangre: string[];
+  archivos!: FileList;
   alerta!: Alerta;
 
   constructor(private pacienteService: PacienteService, private clinicaService: ClinicaService, private tokenService: TokenService, private imagenService: ImagenService) {
@@ -104,4 +106,29 @@ onlyNumberKey(event: any) {
   const charCode = event.which ? event.which : event.keyCode;
   return !(charCode > 31 && (charCode < 48 || charCode > 57));
 }
+
+public onFileChange(event: any) {
+  if (event.target.files.length > 0) {
+    this.editarPerfilPaciente.urlfoto = event.target.files[0].name;
+    this.archivos = event.target.files;
+  }
+}
+
+public subirImagen() {
+  if (this.archivos != null && this.archivos.length > 0) {
+    const formData = new FormData();
+    formData.append('file', this.archivos[0]);
+    this.imagenService.subir(formData).subscribe({
+      next: data => {
+        this.editarPerfilPaciente.urlfoto = data.respuesta.url;
+      },
+      error: error => {
+        this.alerta = { mensaje: error.error, tipo: "danger" };
+      }
+    });
+  } else {
+    this.alerta = { mensaje: 'Debe seleccionar una imagen y subirla', tipo: "danger" };
+  }
+}
+
 }

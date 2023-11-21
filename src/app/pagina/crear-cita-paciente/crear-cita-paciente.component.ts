@@ -5,6 +5,7 @@ import { CitaService } from 'src/app/servicios/cita.service';
 import { ClinicaService } from 'src/app/servicios/clinica.service';
 import { PacienteService } from 'src/app/servicios/paciente.service';
 import { TokenService } from 'src/app/servicios/token.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -23,11 +24,6 @@ export class CrearCitaPacienteComponent {
     this.crearCitaPaciente = new AgendarCitaPacienteDTO;
     this.especialidad = [];
     this.cargarEspecialidad();
-  }
-
-
-  public agendarCitaa(){
-    this.citaService.agendar(this.crearCitaPaciente);
   }
 
   public agendarCita() {

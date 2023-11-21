@@ -4,7 +4,7 @@ export class DetallePacienteDTO {
   nombre: string = "";
   cedula: string = "";
   telefono: string = "";
-  urlFoto: string = "";
+  urlfoto: string = "";
   fechaNacimineto: string = "";
   alergias: string = "";
   ciudad: string = "";
